@@ -17,7 +17,7 @@ function App() {
   // Calling the api whenever the dependency changes
   useEffect(() => {
     Axios.get(
-      `tps://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/lathtest/currencies/${from}.json`
+      `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${from}.json`
     ).then((res) => {
       setInfo(res.data[from]);
     });
@@ -46,14 +46,14 @@ function App() {
   return (
     <div className="App">
       <div className="heading">
-        <h1>PWC CURRENCY CONVERTER</h1>
+        <h1>PWC CURRENCY CONVERTER APP</h1>
       </div>
       <div className="container">
         <div className="left">
           <h3>AMOUNT</h3>
           <input
             type="text"
-            placeholder="AMOUNT TO CONVERT"
+            placeholder="Enter the amount"
             onChange={(e) => setInput(e.target.value)}
           />
         </div>
@@ -94,9 +94,9 @@ function App() {
             convert();
           }}
         >
-          Convert
+          CONVERT
         </button>
-        <h2>AMOUNT CONVERTED TO:</h2>
+        <h2>AMOUNT CONVERTED:</h2>
         <p>{input + " " + from + " = " + output.toFixed(2) + " " + to}</p>
       </div>
     </div>
